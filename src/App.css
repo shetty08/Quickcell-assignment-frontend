@@ -1,38 +1,190 @@
-.App {
-  text-align: center;
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    font-family: Arial, sans-serif;
+    background-color: #f9fafb;
+    overflow: hidden; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Container for the board, full-screen */
+.container {
+    width: 100vw;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Board title */
+h1 {
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+    color: #333;
+    background-color: #f4f5f8;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Board area */
+.board {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px;
+    flex-grow: 1; 
 }
 
-.App-link {
-  color: #61dafb;
+/* Each column (for users or categories) */
+.column {
+    background-color: #f4f5f8;
+    border-radius: 8px;
+    padding: 16px;
+    width: 300px;
+    margin: 0 12px;
+    flex-shrink: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Column titles */
+h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+}
+
+/* Individual card styles */
+.card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Card header: ID and user icon */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* Card ID text */
+.card-id {
+    color: #6b6b6b;
+    font-size: 14px;
+}
+
+/* User icon placeholder */
+.card-user {
+    background-color: #f4f5f8;
+    color: #6b6b6b;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* Card title */
+.card-title {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Card footer for status and tags */
+.card-footer {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+/* Card status indicator */
+.card-status {
+    margin-right: 8px;
+}
+
+/* Tag styles (e.g. 'Feature Request', 'Bug') */
+.card-tag {
+    background-color: #f4f5f8;
+    color: #6b6b6b;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+/* Display options (e.g. dropdown for sorting) */
+.display-options {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+/* Dropdown button styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    background-color: #f4f5f8;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dropdown-toggle:hover {
+    background-color: #e0e0e0;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0; 
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 160px;
+}
+
+/* Dropdown items */
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 12px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.dropdown-menu button:hover {
+    background-color: #f4f5f8;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .board {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column {
+        width: 100%;
+        margin: 12px 0;
+    }
 }
